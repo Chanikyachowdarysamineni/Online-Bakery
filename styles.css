@@ -376,3 +376,59 @@ nav ul li a:hover {
 .contact-content a:hover {
     text-decoration: underline;
 }
+/* Styles for the payment options modal */
+.payment-options {
+    display: none; /* Hide by default */
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    border: 2px solid #4CAF50;
+    padding: 20px;
+    width: 250px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+}
+
+.payment-options h3 {
+    margin-top: 0;
+}
+
+.payment-options ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.payment-options ul li {
+    margin: 10px 0;
+}
+
+.payment-options a {
+    text-decoration: none;
+    color: #4CAF50;
+    font-size: 16px;
+    padding: 10px;
+    display: block;
+    border: 1px solid #4CAF50;
+    border-radius: 5px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.payment-options a:hover {
+    background-color: #f1f1f1;
+}
+
+/* Hide the payment options container initially */
+.payment-options.active {
+    display: block;
+}
+
+/* Center the Pay Now button */
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
