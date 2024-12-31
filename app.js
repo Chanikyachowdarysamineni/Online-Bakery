@@ -166,7 +166,7 @@ function sendEmail() {
     Port: 2525,        // Use the TLS-enabled port
     SSL: true          // Enable SSL for a secure connection
   }).then(
-    message => alert(message+" "+"Check that The You Can Get in Spam")
+    message => alert(message+" "+"we recived your order request")
   );
 }
 
@@ -177,4 +177,87 @@ form.addEventListener("submit", (e) => {
   e.preventDefault();
   sendEmail();
 });
-    
+function makePayment() {
+    const totalAmount = document.getElementById("total-price").innerText;
+    const amount = parseFloat(totalAmount);
+
+    if (amount > 0) {
+        // Simulate UPI payment gateway (e.g., PhonePe or Google Pay)
+        alert("Redirecting to payment gateway. Total amount: ₹" + amount);
+
+        // Here you would normally integrate with the payment provider API
+        // For example, you can redirect to a UPI payment gateway URL:
+        // window.location.href = `upi://pay?pa=your-upi-id@upi&pn=YourName&mc=0000&tid=00000001&url=https://www.example.com&am=${amount}`;
+        
+        // For the sake of simulation, let's show a redirect
+        setTimeout(() => {
+            window.location.href = "https://example-payment-gateway.com"; // Replace with your gateway URL
+        }, 2000);
+    } else {
+        alert("Invalid amount for payment.");
+    }
+}
+function showPaymentOptions() {
+    const paymentOptions = document.getElementById("payment-options");
+    paymentOptions.classList.toggle("active"); // Toggle visibility
+}
+
+function cashOnDelivery() {
+    alert("You have selected Cash on Delivery. Please have the exact amount ready upon delivery.");
+    // Optionally, close the payment options modal here after selection
+    const paymentOptions = document.getElementById("payment-options");
+    paymentOptions.classList.remove("active");
+}
+// Function to show the payment options
+function showPaymentOptions() {
+    const paymentOptions = document.getElementById("payment-options");
+    paymentOptions.style.display = 'block'; // Show payment options
+}
+
+// Function for Cash on Delivery
+function cashOnDelivery() {
+    alert("You have selected Cash on Delivery. Please have the exact amount ready upon delivery.");
+    const paymentOptions = document.getElementById("payment-options");
+    paymentOptions.style.display = 'none'; // Hide payment options after selection
+    document.getElementById("thank-you-message").style.display = 'block'; // Show Thank You message
+}
+
+// Function to handle the order submission
+function submitOrder(event) {
+    event.preventDefault(); // Prevent the default form submission behavior
+
+    // Here you can send the order details to the server using AJAX or other methods
+    // After that, show the payment options
+    alert("Your order has been placed!");
+    const paymentOptions = document.getElementById("payment-options");
+    paymentOptions.style.display = 'block'; // Show payment options for the customer to proceed
+}
+
+// Function to go back to the shopping page
+function goBack() {
+    document.getElementById("thank-you-message").style.display = 'none';
+    // Optionally, reset the form and cart
+    document.getElementById("order-form").reset();
+}
+// Handle Star Rating Clicks
+const starButtons = document.querySelectorAll('.star-button');
+
+starButtons.forEach(starButton => {
+    starButton.addEventListener('click', function() {
+        const ratingValue = this.getAttribute('data-value');
+        
+        // Remove "selected" class from all buttons
+        starButtons.forEach(star => {
+            star.classList.remove('selected');
+        });
+        
+        // Add "selected" class to the clicked button and all previous stars
+        for (let i = 0; i < ratingValue; i++) {
+            starButtons[i].classList.add('selected');
+        }
+
+        // Store the selected rating value in the form (optional)
+        document.getElementById('order-form').rating.value = ratingValue;
+    });
+});
+
