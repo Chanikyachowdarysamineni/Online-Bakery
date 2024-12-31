@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bakery Shop</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Hide all sections by default */
+        section {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with navigation bar -->
+    <header>
+        <h1>Welcome to Our Bakery</h1>
+        <nav>
+            <ul>
+                <li><a href="javascript:void(0);" onclick="showSection('home')">Home</a></li>
+                <li><a href="javascript:void(0);" onclick="showSection('order-items')">Order Items</a></li>
+                <li><a href="javascript:void(0);" onclick="showSection('orders-list')">Orders List</a></li>
+                <li><a href="javascript:void(0);" onclick="showSection('special-offers')">Special Offers</a></li>
+                <li><a href="javascript:void(0);" onclick="showSection('contact-info')">Contact Info</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Home Section with Bakery Specialties -->
+    <section id="home">
+        <h2>Our Specialties</h2>
+        <p>We are known for our delicious and freshly baked goods. Some of our specialties include:</p>
+        <ul>
+            <li><strong>Chocolate Cake:</strong> Rich, moist, and chocolatey, perfect for any celebration!</li>
+            <li><strong>Vanilla Cake:</strong> A light and fluffy cake with a sweet vanilla flavor.</li>
+            <li><strong>Cupcakes:</strong> Small, sweet, and perfect for snacking or gifting.</li>
+            <li><strong>Croissants:</strong> Buttery, flaky, and golden brown, our croissants are a favorite.</li>
+            <li><strong>Brownies:</strong> Fudgy, rich, and indulgent brownies, made with the finest ingredients.</li>
+            <li><strong>Muffins:</strong> Fresh and soft, with a variety of flavors like blueberry, chocolate chip, and more.</li>
+        </ul>
+    </section>
+
+    <!-- Order Items Section -->
+    <section id="order-items">
+        <h2>Our Products</h2>
+        <div class="product-list">
+            <div class="product">
+                <img src="chocolate cake.jpg" alt="Chocolate Cake">
+                <h3>Chocolate Cake</h3>
+                <p>Price: $15.00</p>
+                <button onclick="addToCart('Chocolate Cake', 15)">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="Vanilla Cake.jpg" alt="Vanilla Cake">
+                <h3>Vanilla Cake</h3>
+                <p>Price: $12.00</p>
+                <button onclick="addToCart('Vanilla Cake', 12)">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="Cupcake.jpg" alt="Cupcake">
+                <h3>Cupcake</h3>
+                <p>Price: $3.00</p>
+                <button onclick="addToCart('Cupcake', 3)">Add to Cart</button>
+            </div>
+            <!-- Other products here -->
+        </div>
+    </section>
+
+    <!-- Orders List Section -->
+    <section id="orders-list">
+        <h2>Orders List</h2>
+        <p>Number of orders placed: <span id="orders-count">0</span></p>
+    </section>
+
+    <!-- Special Offers Section -->
+    <section id="special-offers">
+        <h2>Special Offers</h2>
+        <ul>
+            <li><strong>Buy 1, Get 1 Free Muffins:</strong> Perfect for sharing with friends!</li>
+            <li><strong>10% off Chocolate Cakes:</strong> This month only, enjoy a discount on our famous chocolate cakes!</li>
+            <li><strong>Free Cupcake with Every Croissant:</strong> Don't miss out on this tasty offer!</li>
+        </ul>
+    </section>
+
+    <!-- Contact Info Section -->
+    <section id="contact-info">
+        <h2>Contact Us</h2>
+        <p>If you have any questions or would like to place a custom order, feel free to reach out to us:</p>
+        <ul>
+            <li>Email: <a href="mailto:chanikyachowdary8866@gmail.com">chanikyachowdary8866@gmail.com</a></li>
+            <li>Phone: <a href="tel:+919392453073">9392453073</a></li>
+        </ul>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2024 Our Bakery. All rights reserved.</p>
+    </footer>
+
+    <script src="app.js"></script>
+    <script>
+        // Function to show a section and hide others
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                section.style.display = 'none';
+            });
+
+            // Show the clicked section
+            document.getElementById(sectionId).style.display = 'block';
+        }
+
+        // Example function to add items to cart (you can extend this)
+        function addToCart(item, price) {
+            // Your logic to add items to cart and update total
+            console.log(item, price);
+            // Example of updating orders count
+            const ordersCount = document.getElementById('orders-count');
+            ordersCount.textContent = parseInt(ordersCount.textContent) + 1;  // Increment order count
+        }
+
+        // Initially show home section
+        showSection('home');
+    </script>
+</body>
+</html>

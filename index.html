@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bakery Shop</title>
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+<body>
+    <header>
+        <marquee><h1>Welcome to Our Bakery</h1></marquee> 
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#contact">Contact Info</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <div class="products">
+            <center><h2>Avaliable Items</h2></center> 
+            <div class="product-list">
+                
+
+
+                <div class="product">
+                    <img src="chocolate cake.jpg" alt="Chocolate Cake">
+                    <h3>Chocolate Cake</h3>
+                    <p>Price: $15.00</p>
+                    <button onclick="addToCart('Chocolate Cake', 15)">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="Vanilla Cake.jpg" alt="Vanilla Cake">
+                    <h3>Vanilla Cake</h3>
+                    <p>Price: $12.00</p>
+                    <button onclick="addToCart('Vanilla Cake', 12)">Add to Cart</button>
+                </div>
+                
+                <div class="product">
+                    <img src="Croissant.jpg" alt="Croissant">
+                    <h3>Croissant</h3>
+                    <p>Price: $2.50</p>
+                    <button onclick="addToCart('Croissant', 2.5)">Add to Cart</button>
+                </div>
+
+                <!-- New items -->
+                <div class="product">
+                    <img src="Brownie.jpg" alt="Brownie">
+                    <h3>Brownie</h3>
+                    <p>Price: $4.00</p>
+                    <button onclick="addToCart('Brownie', 4)">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="Muffin.jpg" alt="Muffin">
+                    <h3>Muffin</h3>
+                    <p>Price: $2.00</p>
+                    <button onclick="addToCart('Muffin', 2)">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="Danish.jpg" alt="Danish">
+                    <h3>Danish</h3>
+                    <p>Price: $3.50</p>
+                    <button onclick="addToCart('Danish', 3.5)">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="Bagel.jpg" alt="Bagel">
+                    <h3>Bagel</h3>
+                    <p>Price: $1.50</p>
+                    <button onclick="addToCart('Bagel', 1.5)">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="Pancake.jpg" alt="Pancake">
+                    <h3>Pancake</h3>
+                    <p>Price: $5.00</p>
+                    <button onclick="addToCart('Pancake', 5)">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="Scone.jpg" alt="Scone">
+                    <h3>Scone</h3>
+                    <p>Price: $3.00</p>
+                    <button onclick="addToCart('Scone', 3)">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+        
+    <div class="order-form">
+        <h2>Order Details</h2>
+        <form id="order-form" onsubmit="submitOrder(event)">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br>
+
+            <label for="phone">Phone:</label>
+            <input type="text" id="phone" name="phone" required><br>
+
+            <h3>Your Cart:</h3>
+            <div id="cart-items"></div>
+            <h3>Total: $<span id="total-price">0.00</span></h3>
+
+            <button type="submit">Place Order</button><br><br>
+            <!-- <button type="button" onclick="showOrderList()">Order List</button> -->
+
+        <!-- Contact Section -->
+        <div id="contact" class="contact-template">
+            <div class="contact-content">
+                 <h2>Contact Us</h2>
+                    <p>If you have any questions or need more information, feel free to reach out to us:</p>
+                    <p><strong>Email:</strong> <a href="mailto:chanikyachowdary8866@gmail.com">chanikkyachowdary8866@gmail.com</a></p>
+                    <p><strong>Phone:</strong> <a href="tel:+919392453073">9392453073</a></p>
+            </div>
+       </div>
+
+
+        </form>
+    </div>
+    </div>
+
+    <div id="thank-you-message" class="thank-you-message">
+        <h2>Thank you for your order!</h2>
+        <p>You will recive your order soon</p>
+        <button onclick="goBack()">Go Back to Shopping</button>
+    </div>
+
+    <script src="app.js"></script>
+    <script src="https://smtpjs.com/v3/smtp.js">
+    </script>
+</body>
+</html>
